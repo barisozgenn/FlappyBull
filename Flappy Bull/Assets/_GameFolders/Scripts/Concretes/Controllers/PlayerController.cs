@@ -11,7 +11,7 @@ namespace FlappyBull.Controllers
       
         private Rigidbody2D _rigidbody2D;
 
-        Jump _jump;
+        PlayerJump _jump;
         DesktopInputController _desktopInputController;
 
         private bool _isJumpButtonClicked;
@@ -19,7 +19,7 @@ namespace FlappyBull.Controllers
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-            _jump = GetComponent<Jump>();
+            _jump = GetComponent<PlayerJump>();
             _desktopInputController = new DesktopInputController();
         }
 

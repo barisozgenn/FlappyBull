@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace FlappyBull.Movements
 {
-    public class Jump : MonoBehaviour
+    public class PlayerJump : MonoBehaviour
     {
         [SerializeField] private float jumpForce = 350f;
 

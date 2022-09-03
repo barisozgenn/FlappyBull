@@ -5,10 +5,9 @@ using UnityEngine;
 
 namespace FlappyBull.Controllers
 {
-    public class ObstacleController : PrefabLifeCycleController
+    public class ProjectileController : PrefabLifeCycleController
     {
         
-
     }
 
 }

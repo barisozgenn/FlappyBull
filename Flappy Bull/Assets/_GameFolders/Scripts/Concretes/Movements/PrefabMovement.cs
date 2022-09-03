@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using FlappyBull.Enums;
 using UnityEngine;
 
 namespace FlappyBull.Movements
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class ObstacleMovement : MonoBehaviour
+    public class PrefabMovement : MonoBehaviour
     {
         [SerializeField] float moveSpeed = 5f;
+        [SerializeField] DirectionEnum direction;
         Rigidbody2D _rigidbody2D;
 
 
@@ -18,7 +20,10 @@ namespace FlappyBull.Movements
 
         private void Start()
         {
-            _rigidbody2D.velocity = Vector2.left * moveSpeed;
+            Vector2 directionObject = Vector2.left;
+            if (direction == DirectionEnum.Right) directionObject = Vector2.right;
+
+            _rigidbody2D.velocity = directionObject * moveSpeed;
         }
     }
 }
