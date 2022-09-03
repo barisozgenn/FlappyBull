@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 //Don't add namespace to reach in every script
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] int gameScore;
     public static GameManager Instance { get; private set; }
+
+    public event System.Action<int> OnScoreChange;
 
     private void Awake()
     {
@@ -25,6 +28,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+    public void IncreaseGameScore()
+    {
+        gameScore++;
+        OnScoreChange?.Invoke(gameScore);
     }
 
     public void RestartGame()

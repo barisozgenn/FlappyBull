@@ -8,6 +8,7 @@ namespace FlappyBull.Controllers
     {
         public bool LeftMouseClickDown => Input.GetMouseButtonDown(0);
         public bool SpaceButtonClickDown => Input.GetKeyDown(KeyCode.Space);
+        public bool FButtonClickDown => Input.GetKeyDown(KeyCode.F);
     }
 
 }
