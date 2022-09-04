@@ -15,7 +15,7 @@ namespace FlappyBull.Controllers
         PlayerJump _jump;
         DesktopInputController _desktopInputController;
         InstantiateProjectile _instantiateProjectile;
-
+        AudioSource _audioSource;
         private bool _isJumpButtonClicked;
         private bool _isFireButtonClicked;
 
@@ -25,6 +25,7 @@ namespace FlappyBull.Controllers
             _jump = GetComponent<PlayerJump>();
             _instantiateProjectile = GetComponent<InstantiateProjectile>();
             _desktopInputController = new DesktopInputController();
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -37,6 +38,8 @@ namespace FlappyBull.Controllers
             if (_isJumpButtonClicked)
             {
                 _jump.JumpAction(rigidbody2D: _rigidbody2D);//Physics need to be defined in FixedUpdate, because it is intgreated with game engine physics logic. Default time 0.2
+                _audioSource.Play();
+
                 _isJumpButtonClicked = false;
             }
             if (_isFireButtonClicked)
@@ -46,15 +49,6 @@ namespace FlappyBull.Controllers
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            Debug.Log("collision => " + collision.gameObject.name);
-
-            if (collision.gameObject.tag == "Enemy")
-            {
-                GameManager.Instance.RestartGame();
-            }
-        }
     }
 
 }

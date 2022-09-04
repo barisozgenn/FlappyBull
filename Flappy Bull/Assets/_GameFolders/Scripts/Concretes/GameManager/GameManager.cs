@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        gameScore = 0;
+        Time.timeScale = 1;
         StartCoroutine(RestartGameScene());
     }
     private IEnumerator RestartGameScene()
