@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuCanvas : MonoBehaviour
+namespace FlappyBull.UIs
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MenuCanvas : MonoBehaviour
     {
-        
+        public void StartButtonClick()
+        {
+            GameManager.Instance.StartGame();
+        }
+        public void ExitButtonClick()
+        {
+            GameManager.Instance.ExitGame();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

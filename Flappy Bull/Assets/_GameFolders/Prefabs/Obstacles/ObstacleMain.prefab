@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2754874146810439187}
   - component: {fileID: 8609093613838124711}
   - component: {fileID: -7003941628334367744}
-  - component: {fileID: 537166038673014201}
   - component: {fileID: 61117444843769493}
   m_Layer: 0
   m_Name: ObstacleMain
@@ -82,19 +81,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &537166038673014201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2227522024998854731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b9236b2496d54ba1901be7cb7b5e70d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxLifeTime: 6
 --- !u!114 &61117444843769493
 MonoBehaviour:
   m_ObjectHideFlags: 0

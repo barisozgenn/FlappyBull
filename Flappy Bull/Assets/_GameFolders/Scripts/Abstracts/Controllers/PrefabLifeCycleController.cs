@@ -8,7 +8,7 @@ namespace FlappyBull.Abstracts.Controllers
     {
         [SerializeField] float maxLifeTime = 5f;
 
-        float _currentTime;
+        protected float _currentTime;
 
         private void Update()
         {
@@ -16,9 +16,12 @@ namespace FlappyBull.Abstracts.Controllers
 
             if (_currentTime >= maxLifeTime)
             {
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
+                KillGameObject();
             }
         }
+
+        public abstract void KillGameObject();
     }
 
 }

@@ -7,6 +7,7 @@ namespace FlappyBull.Controllers
 {
     public class ProjectileController : PrefabLifeCycleController
     {
+        
         private void OnTriggerEnter2D(Collider2D collider)
         {
             Debug.Log("projectile hit => " + collider.gameObject.name);
@@ -15,10 +16,18 @@ namespace FlappyBull.Controllers
             if(enemy!=null)
             {
                 GameManager.Instance.IncreaseGameScore();
-                Destroy(enemy.gameObject);
-                Destroy(this.gameObject);
+                //Destroy(enemy.gameObject);
+                enemy.KillGameObject();
             }
+            //Destroy(this.gameObject);
+            KillGameObject();
         }
+
+        public override void KillGameObject()
+        {
+            Destroy(this.gameObject);
+        }
+
     }
 
 }

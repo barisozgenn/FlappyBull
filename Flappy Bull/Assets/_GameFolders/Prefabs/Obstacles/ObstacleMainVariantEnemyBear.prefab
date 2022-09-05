@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2227522024998854731, guid: d13e74b25d65c4798a6d48d14568f91d, type: 3}
       propertyPath: m_Name
-      value: ObstacleMainVariantBear
+      value: ObstacleMainVariantEnemyBear
       objectReference: {fileID: 0}
     - target: {fileID: 2754874146810439187, guid: d13e74b25d65c4798a6d48d14568f91d, type: 3}
       propertyPath: m_RootOrder
@@ -149,6 +149,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d13e74b25d65c4798a6d48d14568f91d, type: 3}
+--- !u!1 &376284493939673796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2227522024998854731, guid: d13e74b25d65c4798a6d48d14568f91d, type: 3}
+  m_PrefabInstance: {fileID: 2004501756815960719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6550156587983269136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376284493939673796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe1a96ab988b4cd185e7bacba0239d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLifeTime: 5
 --- !u!4 &4461427631105133724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2754874146810439187, guid: d13e74b25d65c4798a6d48d14568f91d, type: 3}

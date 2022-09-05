@@ -18,7 +18,7 @@ namespace FlappyBull.Movements
             _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
             Vector2 directionObject = Vector2.left;
             if (direction == DirectionEnum.Right) directionObject = Vector2.right;

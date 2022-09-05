@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using FlappyBull.Abstracts.Spawners;
 using FlappyBull.Controllers;
 using FlappyBull.Movements;
+using FlappyBull.Pools;
 using UnityEngine;
 
 namespace FlappyBull.Spawners
@@ -10,17 +11,25 @@ namespace FlappyBull.Spawners
     public class ObstacleSpawner : BaseSpawners
     {
 
-        [SerializeField] ObstacleController[] obstaclePrefabs;
+        //[SerializeField] ObstacleController[] obstaclePrefabs;
         [SerializeField] Color[] obstaclePrefabColors;
 
 
         protected override void SpawnObject()
         {
-            int obstacleRandomIndex = Random.Range(0, obstaclePrefabs.Length);
-            var selectedObstacleObject = ObstacleCandleChangeSpriteColor(item:obstaclePrefabs[obstacleRandomIndex]);
-            selectedObstacleObject = ObstacleCandleChangeSize(item: selectedObstacleObject);
+            //int obstacleRandomIndex = Random.Range(0, obstaclePrefabs.Length);
+            //var selectedObstacleObject = ObstacleCandleChangeSpriteColor(item:obstaclePrefabs[obstacleRandomIndex]);
+            // selectedObstacleObject = ObstacleCandleChangeSize(item: selectedObstacleObject);
 
-            Instantiate(original: selectedObstacleObject, parent: this.transform);//used parent varaible because prefabs will be created as child object in spawner
+            // Instantiate(original: selectedObstacleObject, parent: this.transform);//used parent varaible because prefabs will be created as child object in spawner
+
+            ObstacleController poolObstacle = ObstaclePool.Instance.Get();
+            poolObstacle.transform.position = this.transform.position;
+            poolObstacle = ObstacleCandleChangeSpriteColor(item: poolObstacle);
+            poolObstacle = ObstacleCandleChangeSize(item: poolObstacle);
+
+            poolObstacle.gameObject.SetActive(true);
+
         }
 
         private ObstacleController ObstacleCandleChangeSpriteColor(ObstacleController item)

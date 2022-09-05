@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public event System.Action<int> OnScoreChange;
+    public event System.Action OnNewSceneLoad;
 
     private void Awake()
     {
@@ -35,14 +36,32 @@ public class GameManager : MonoBehaviour
         OnScoreChange?.Invoke(gameScore);
     }
 
-    public void RestartGame()
+    public void StartGame()
     {
         gameScore = 0;
         Time.timeScale = 1;
-        StartCoroutine(RestartGameScene());
+        StartCoroutine(StartGameScene());
     }
-    private IEnumerator RestartGameScene()
+    private IEnumerator StartGameScene()
     {
+        OnNewSceneLoad?.Invoke();
         yield return SceneManager.LoadSceneAsync("GameScene");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void MenuGame()
+    {
+        gameScore = 0;
+        Time.timeScale = 1;
+        StartCoroutine(MenuGameScene());
+    }
+    private IEnumerator MenuGameScene()
+    {
+        OnNewSceneLoad?.Invoke();
+        yield return SceneManager.LoadSceneAsync("MenuScene");
     }
 }

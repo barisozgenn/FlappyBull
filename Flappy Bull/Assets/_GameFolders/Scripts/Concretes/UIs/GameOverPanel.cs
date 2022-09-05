@@ -8,11 +8,11 @@ namespace FlappyBull.UIs
     {
         public void RestartGameButtonClick()
         {
-            GameManager.Instance.RestartGame();
+            GameManager.Instance.StartGame();
         }
         public void MenuGameButtonClick()
         {
-            Debug.Log("Menu Button is clicked");
+            GameManager.Instance.MenuGame();
         }
     }
 
