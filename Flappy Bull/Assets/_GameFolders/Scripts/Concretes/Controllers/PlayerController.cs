@@ -15,6 +15,8 @@ namespace FlappyBull.Controllers
         PlayerJump _jump;
         DesktopInputController _desktopInputController;
         InstantiateProjectile _instantiateProjectile;
+        DeadAction _deadAction;
+
         AudioSource _audioSource;
         private bool _isJumpButtonClicked;
         private bool _isFireButtonClicked;
@@ -26,10 +28,13 @@ namespace FlappyBull.Controllers
             _instantiateProjectile = GetComponent<InstantiateProjectile>();
             _desktopInputController = new DesktopInputController();
             _audioSource = GetComponent<AudioSource>();
+            _deadAction = GetComponent<DeadAction>();
         }
 
         private void Update()
         {
+            if (_deadAction.IsDead) return;
+
             _isJumpButtonClicked = _desktopInputController.LeftMouseClickDown || _desktopInputController.SpaceButtonClickDown;//Inputs need to be defined in update
             _isFireButtonClicked = _desktopInputController.FButtonClickDown;//Inputs need to be defined in update
         }
